@@ -23,14 +23,14 @@ AppState.prototype.saveToLocalStorage = function () {
 }
 
 AppState.prototype.loadItems = function () {
-if (storedData) {
-  this.allProducts = JSON.parse(storedData);
+  let storedData = localStorage.getItem('allProducts');
+
+  if (storedData) {
+    this.allProducts = JSON.parse(storedData);
+  } else {
+    this.instantiateProducts();
+  }
 }
-
-  this.instantiateProducts();
-
-}
-
 
 function Product(name, fileExtension = 'jpg') {
   this.name = name;

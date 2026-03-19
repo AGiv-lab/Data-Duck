@@ -1,6 +1,92 @@
-/body {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: sans-serif;
   min-height: 100vh;
   background: #260b47;
   color: white;
-}* TODO: Make it awesome */
+}
+
+header {
+  background: rgba(193, 69, 218, 0.11);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(238, 223, 14, 0.89);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #ebd82c, #e67f47);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+nav a {
+  color: #f3bd48;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(207, 79, 4, 0.45);
+  background: rgba(13, 2, 15, 0.08);
+  transition: all 0.2s;
+}
+
+nav a:hover {
+  background: rgba(39, 109, 6, 0.952);
+  color: #e9b227;
+}
+
+main {
+  padding: 40px 32px;
+  text-align: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+section img {)
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(240, 165, 0, 0.25);
+  background: rgba(120, 40, 180, 0.25);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  padding: 12px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+section img:hover {
+  transform: scale(1.05);
+  border-color: rgba(213, 216, 13, 0.7);
+}
+
+footer {
+  background: rgba(29, 1, 1, 0.02);
+  border-top: 1px solid rgba(241, 125, 30, 0.925);
+  padding: 16px 32px;
+  text-align: center;
+  color: rgba(238, 189, 84, 0.705);
+}

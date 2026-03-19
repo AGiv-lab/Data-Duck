@@ -21,7 +21,7 @@ function renderChart() {
       datasets: [{
         label: 'Votes per Product',
         data: votes,
-        backgroundColor: 'steelblue',
+        backgroundColor: '#f1c870',
       }]
     }
   };
