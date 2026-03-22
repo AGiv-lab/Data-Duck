@@ -1,40 +1,56 @@
 'use strict';
 
-function AppState() {
-  this.allProducts = [];
+let state = new AppState();
+state.loadItems();
+
+let labels = [];
+let votes = [];
+
+for (let i = 0; i < state.allProducts.length; i++) {
+  labels.push(state.allProducts[i].name);
+  votes.push(state.allProducts[i].timesClicked);
 }
 
-AppState.prototype.instantiateProducts = function () {
+let ctx = document.getElementById('chart');
 
-  const productNames = ['bag', 'banana', 'bathroom', 'boots', 'breakfast', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'pet-sweep', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'water-can', 'wine-glass'];
-
-  for (let i = 0; i < productNames.length; i++) {
-    if (productNames[i] === 'sweep') {
-      this.allProducts.push(new Product(productNames[i], 'png'))
-    } else {
-      this.allProducts.push(new Product(productNames[i]))
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: 'Votes per Product',
+      data: votes,
+      backgroundColor: 'rgba(240, 200, 120, 0.7)',
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {
+        labels: {
+          color: '#f0a500',
+          font: {
+            size: 14
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#f0a500',
+          font: {
+            size: 12
+          }
+        }
+      },
+      y: {
+        ticks: {
+          color: '#f0a500',
+          font: {
+            size: 12
+          }
+        }
+      }
     }
   }
-
-}
-
-AppState.prototype.saveToLocalStorage = function () { 
-  localStorage.setItem('allProducts', JSON.stringify(this.allProducts));
-}
-
-AppState.prototype.loadItems = function () {
-  let storedData = localStorage.getItem('allProducts');
-
-  if (storedData) {
-    this.allProducts = JSON.parse(storedData);
-  } else {
-    this.instantiateProducts();
-  }
-}
-
-function Product(name, fileExtension = 'jpg') {
-  this.name = name;
-  this.source = `assets/${name}.${fileExtension}`;
-  this.timesClicked = 0;
-  this.timesShown = 0;
-}
+});
