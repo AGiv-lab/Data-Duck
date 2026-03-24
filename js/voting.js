@@ -55,6 +55,34 @@ function handleImageClick(event) {
 
   renderProductImages();
 }
+  votingRounds--;
+
+  if (votingRounds === 0) {
+    imgContainer.removeEventListener('click', handleImageClick);
+    state.saveToLocalStorage();
+    return;
+  }
+
+  renderProductImages();
+}
+
+  for (let i = 0; i < state.allProducts.length; i++) {
+    if (imageClicked === state.allProducts[i].name) {
+      state.allProducts[i].timesClicked++;
+      break;
+    }
+  }
+
+  votingRounds--;
+
+  if (votingRounds === 0) {
+    imgContainer.removeEventListener('click', handleImageClick);
+    state.saveToLocalStorage();
+    return;
+  }
+
+  renderProductImages();
+}
 
 renderProductImages();
 imgContainer.addEventListener('click', handleImageClick);

@@ -1,3 +1,16 @@
+'use strict';
+
+let state = new AppState();
+state.loadItems();
+
+let labels = [];
+let votes = [];
+
+for (let i = 0; i < state.allProducts.length; i++) {
+  labels.push(state.allProducts[i].name);
+  votes.push(state.allProducts[i].timesClicked);
+}
+
 let chartData = {
   type: 'bar',
   data: {
@@ -12,30 +25,28 @@ let chartData = {
     plugins: {
       legend: {
         labels: {
-          color: '#f0a500',    // legend text color
-          font: {
-            size: 14           // legend text size
-          }
+          color: '#f0a500',
+          font: { size: 14 }
         }
       }
     },
     scales: {
       x: {
         ticks: {
-          color: '#f0a500',    // x-axis label color
-          font: {
-            size: 12           // x-axis label size
-          }
+          color: '#f0a500',
+          font: { size: 12 }
         }
       },
       y: {
         ticks: {
-          color: '#f0a500',    // y-axis label color
-          font: {
-            size: 12           // y-axis label size
-          }
+          color: '#f0a500',
+          font: { size: 12 }
         }
       }
     }
   }
 };
+
+let ctx = document.getElementById('chart');
+
+new Chart(ctx, chartData);
