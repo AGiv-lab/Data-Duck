@@ -18,40 +18,47 @@ let chartData = {
     datasets: [{
       label: 'Votes per Product',
       data: votes,
-      backgroundColor: 'rgba(240, 200, 120, 0.7)',
+      backgroundColor: '#FFD966',
+      borderColor: '#FFC107',
+      borderWidth: 1
     }]
   },
-  options: {
-    plugins: {
-      legend: {
-        labels: {
-          color: '#f0a500',
-          font: {
-            size: 14
-          }
-        }
-      }
-    },
-    scales: {
-      x: {
-        ticks: {
-          color: '#f0a500',
-          font: {
-            size: 12
-          }
-        }
-      },
-      y: {
-        ticks: {
-          color: '#f0a500',
-          font: {
-            size: 12
-          }
+options: {
+  plugins: {
+    legend: {
+      labels: {
+        color: '#FFD966',
+        font: {
+          size: 16,
+          weight: 'bold'
         }
       }
     }
+  },
+  scales: {
+    x: {
+      ticks: {
+        color: '#FFFFFF',
+        font: {
+          size: 13
+        },
+        maxRotation: 45,
+        minRotation: 45
+      },
+      grid: {
+        color: 'rgba(255,255,255,0.08)'
+      }
+    },
+    y: {
+      ticks: {
+        color: '#FFFFFF',
+        font: {
+          size: 13
+        }
+      },
+      grid: {
+        color: 'rgba(255,255,255,0.08)'
+      }
+    }
   }
-};
-
-let ctx = document.getElementById('chart');
-new Chart(ctx, chartData);
+}
