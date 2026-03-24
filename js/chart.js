@@ -26,7 +26,9 @@ let chartData = {
       legend: {
         labels: {
           color: '#f0a500',
-          font: { size: 14 }
+          font: {
+            size: 14
+          }
         }
       }
     },
@@ -34,13 +36,17 @@ let chartData = {
       x: {
         ticks: {
           color: '#f0a500',
-          font: { size: 12 }
+          font: {
+            size: 12
+          }
         }
       },
       y: {
         ticks: {
           color: '#f0a500',
-          font: { size: 12 }
+          font: {
+            size: 12
+          }
         }
       }
     }
@@ -48,5 +54,4 @@ let chartData = {
 };
 
 let ctx = document.getElementById('chart');
-
 new Chart(ctx, chartData);
